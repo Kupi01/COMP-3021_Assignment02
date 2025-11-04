@@ -11,6 +11,7 @@ import pymysql
 import smtplib
 from email.message import EmailMessage
 
+# Database configuration using environment variables
 db_config: Dict[str, str] = {
     "host": os.environ.get("DB_HOST", "localhost"),
     "user": os.environ.get("DB_USER", "user"),
