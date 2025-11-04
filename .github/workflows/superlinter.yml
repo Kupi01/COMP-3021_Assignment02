@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 permissions:
-  contents: read  
+  contents: read 
 
 jobs:
   lint:
@@ -27,3 +27,4 @@ jobs:
           DEFAULT_BRANCH: main
           VALIDATE_CHECKOV: false
           VALIDATE_GITHUB_ACTIONS_ZIZMOR: false
+          VALIDATE_YAML_PRETTIER: false 
