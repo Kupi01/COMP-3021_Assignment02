@@ -1,10 +1,17 @@
+"""
+Assignment1 Python code sample.
+Includes safe database interaction, user input, email sending, and API fetching.
+"""
+
 import os
 from urllib.request import urlopen
+from typing import Dict
+
 import pymysql
 import smtplib
 from email.message import EmailMessage
 
-db_config = {
+db_config: Dict[str, str] = {
     "host": os.environ.get("DB_HOST", "localhost"),
     "user": os.environ.get("DB_USER", "user"),
     "password": os.environ.get("DB_PASS", ""),
@@ -47,7 +54,7 @@ def save_to_db(data: str) -> None:
 
 
 if __name__ == "__main__":
-    user_input = get_user_input()
-    data = get_data()
+    user_input: str = get_user_input()
+    data: str = get_data()
     save_to_db(data)
     send_email("admin@example.com", "User Input", user_input)
