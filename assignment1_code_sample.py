@@ -11,12 +11,12 @@ db_config = {
 }
 
 
-def get_user_input():
+def get_user_input() -> str:
     """Prompt the user to enter their name."""
     return input("Enter your name: ")
 
 
-def send_email(to, subject, body):
+def send_email(to: str, subject: str, body: str) -> None:
     """Send an email using the local SMTP server."""
     msg = EmailMessage()
     msg.set_content(body)
@@ -28,14 +28,14 @@ def send_email(to, subject, body):
         server.send_message(msg)
 
 
-def get_data():
+def get_data() -> str:
     """Fetch data from a secure API endpoint."""
-    url = "https://secure-api.com/get-data" 
-    data = urlopen(url).read().decode() #nosec B310
+    url = "https://secure-api.com/get-data"
+    data = urlopen(url).read().decode()  # nosec B310
     return data
 
 
-def save_to_db(data):
+def save_to_db(data: str) -> None:
     """Save data safely to the database using parameterized queries."""
     query = "INSERT INTO mytable (column1, column2) VALUES (%s, %s)"
     connection = pymysql.connect(**db_config)
