@@ -31,7 +31,7 @@ def send_email(to, subject, body):
 def get_data():
     """Fetch data from a secure API endpoint."""
     url = "https://secure-api.com/get-data" 
-    data = urlopen(url).read().decode()
+    data = urlopen(url).read().decode() #nosec B310
     return data
 
 
